@@ -274,37 +274,5 @@ int main(int argc, char** argv)
    printf( "  Throughput (gpairs/s): %f\t\n", throughput);
    printf( "================================================== \n" );
 
-   //Create the JSON result file
-   FILE *res_file = fopen("test_result.json", "w+");
-   if (res_file == NULL) {
-      printf( "Cannot open 'test_result.json' file\n" );
-      exit(1);
-   }
-   fprintf(res_file,
-      "{ \
-         \"benchmark\": \"%s\", \
-         \"version\": \"%daccs 250mhz memport_128 noflush fpga_solve_tw\", \
-         \"hwruntime\": \"%s\", \
-         \"pm\": \"%s_%s\", \
-         \"datatype\": \"%s\", \
-         \"argv\": \"%d %d %d\", \
-         \"exectime\": \"%f\", \
-         \"performance\": \"%f\", \
-         \"note\": \"warm %f, exec %f, flush %f\" \
-      }",
-      "nbody",
-      FBLOCK_NUM_ACCS,
-      FPGA_HWRUNTIME,
-      "ompss", RUNTIME_MODE,
-      "float",
-      num_particles * BLOCK_SIZE, BLOCK_SIZE, timesteps,
-      times[2] - times[1],
-      throughput,
-      times[1] - times[0],
-      times[2] - times[1],
-      times[3] - times[2]
-   );
-   fclose(res_file);
-
    return result < 0;
 }
