@@ -1,8 +1,8 @@
 # N-Body
 
-**Name**: N-Body Simulation
+**Name**: N-Body Simulation   
 **Contact Person**: OmpSs@FPGA Team, ompss-fpga-support@bsc.es  
-**License Agreement**: GPL  
+**License Agreement**: GPL 3.0  
 **Platform**: OmpSs@FPGA
 
 ### Description
