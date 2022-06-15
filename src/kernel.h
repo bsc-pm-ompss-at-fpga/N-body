@@ -1,6 +1,6 @@
 /*
-* Copyright (c) 2020, Barcelona Supercomputing Center
-*                     Centro Nacional de Supercomputacion
+* Copyright (c) 2020-2022, Barcelona Supercomputing Center
+*                          Centro Nacional de Supercomputacion
 *
 * This program is free software: you can redistribute it and/or modify  
 * it under the terms of the GNU General Public License as published by  
@@ -23,6 +23,9 @@
 #endif
 #ifndef NBODY_NCALCFORCES
 # error NBODY_NCALCFORCES is not defined
+#endif
+#ifndef NBODY_NUM_FBLOCK_ACCS
+#  error NBODY_NUM_FBLOCK_ACCS variable not defined
 #endif
 
 static const float gravitational_constant =  6.6726e-11; /* N(m/kg)2 */

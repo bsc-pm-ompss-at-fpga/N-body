@@ -1,6 +1,6 @@
 /*
-* Copyright (c) 2020, Barcelona Supercomputing Center
-*                     Centro Nacional de Supercomputacion
+* Copyright (c) 2020-2022, Barcelona Supercomputing Center
+*                          Centro Nacional de Supercomputacion
 *
 * This program is free software: you can redistribute it and/or modify  
 * it under the terms of the GNU General Public License as published by  
@@ -49,7 +49,7 @@ void calculate_forces_part(
    *fz = local_z + force_corrected * diff_z;
 }
 
-#pragma omp target device(fpga) num_instances(1) localmem_copies \
+#pragma omp target device(fpga) num_instances(FBLOCK_NUM_ACCS) localmem_copies \
   copy_inout([BLOCK_SIZE]x, [BLOCK_SIZE]y, [BLOCK_SIZE]z) \
   copy_in([BLOCK_SIZE]pos_x1, [BLOCK_SIZE]pos_y1, [BLOCK_SIZE]pos_z1, [BLOCK_SIZE]mass1) \
   copy_in([BLOCK_SIZE]pos_x2, [BLOCK_SIZE]pos_y2, [BLOCK_SIZE]pos_z2, [BLOCK_SIZE]weight2)
